@@ -1,0 +1,33 @@
+{
+  "name": "newtoncinema",
+  "version": "1.0.0",
+  "description": "An app to book cinema tickets",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/susrajen/newtonCinema.git"
+  },
+  "keywords": [
+    "cinema",
+    "tickets",
+    "book",
+    "node",
+    "mongo",
+    "react",
+    "mern",
+    "stack"
+  ],
+  "author": "Sushmitha Rajendran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/susrajen/newtonCinema/issues"
+  },
+  "homepage": "https://github.com/susrajen/newtonCinema#app.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.5.6"
+  }
+}

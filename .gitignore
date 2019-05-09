@@ -1,0 +1,19 @@
+# dependencies
+node_modules
+
+# misc
+.DS_Store
+
+# builds
+builds
+dist
+
+# test coverages
+Coverage
+coverage
+
+# todo files
+todo
+
+# docs
+docs
