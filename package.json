@@ -4,7 +4,11 @@
   "description": "An app to book cinema tickets",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "client": "webpack-dev-server --mode development",
+    "server": "cd server && nodemon server.js",
+    "start": "concurrently \"npm run client\" \"npm run server\"",
+    "build": "webpack --mode development"
   },
   "repository": {
     "type": "git",
@@ -27,7 +31,26 @@
   },
   "homepage": "https://github.com/susrajen/newtonCinema#app.js",
   "dependencies": {
+    "axios": "^0.18.0",
+    "babel-loader": "^8.0.5",
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.0",
+    "css-loader": "^2.1.1",
     "express": "^4.16.4",
-    "mongoose": "^5.5.6"
+    "mongoose": "^5.5.6",
+    "nodemon": "^1.19.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.8.4",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0"
   }
 }
