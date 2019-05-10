@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 class AddTheatre extends Component {
   constructor(props) {
@@ -9,14 +10,21 @@ class AddTheatre extends Component {
     this.theatreNameChangeHandler = this.theatreNameChangeHandler.bind(this);
     this.state = {
       theatreName: "",
-      screenCount: 0
+      screenCount: 0,
+      resultStatus: ""
     };
   }
   addTheatre(event) {
-    axios.post("http://localhost:4000/addTheatre", {
-      theatreName: this.state.theatreName,
-      screenCount: this.state.screenCount
-    });
+    axios
+      .post("http://localhost:4000/addTheatre", {
+        theatreName: this.state.theatreName,
+        screenCount: this.state.screenCount
+      })
+      .then(response => {
+        console.log(response);
+        console.log(response.data);
+      });
+    this.props.history.push("/listTheatres");
   }
   theatreNameChangeHandler(event) {
     this.setState({
@@ -50,10 +58,11 @@ class AddTheatre extends Component {
           value={this.state.screenCount}
           onChange={this.screenCountChangeHandler}
         />
+
         <input type="submit" value="Add theatre" onClick={this.addTheatre} />
       </div>
     );
   }
 }
 
-export default AddTheatre;
+export default withRouter(AddTheatre);
