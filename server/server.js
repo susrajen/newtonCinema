@@ -7,17 +7,6 @@ var cors = require("cors");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-//   next();
-// });
-
 app.use(cors());
 
 mongoose.Promise = global.Promise;
@@ -33,10 +22,6 @@ var theatreSchema = new mongoose.Schema({
 
 var AddTheatre = mongoose.model("theatres", theatreSchema);
 
-// app.get("/", (request, response) => {
-//   response.sendFile(__dirname + "/index.html");
-// });
-
 app.post("/addTheatre", (request, response) => {
   var myData = new AddTheatre(request.body);
   myData
@@ -48,6 +33,15 @@ app.post("/addTheatre", (request, response) => {
     .catch(error => {
       response.status(400).send("Not able to save!");
     });
+});
+
+app.get("/listTheatres", (request, response) => {
+  AddTheatre.find({}, function(error, theatres) {
+    if (error) {
+      return error;
+    }
+    response.send(theatres);
+  });
 });
 
 app.listen(port, () => {

@@ -23,8 +23,8 @@ class AddTheatre extends Component {
       .then(response => {
         console.log(response);
         console.log(response.data);
+        this.props.history.push("/listTheatres");
       });
-    this.props.history.push("/listTheatres");
   }
   theatreNameChangeHandler(event) {
     this.setState({
